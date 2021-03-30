@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gabriel Henrique da Silva">
+    <meta name="description" content="Aplicativo web. Um jogo de cartas.">
+    <meta name="keywords" content="sites, desenvolvimento, minigame">
+    <meta name="copyright" content="© 2021 Gabriel Henrique da Silva">
+    
+    <link rel="stylesheet" href="public/style/master.css">
+    <title>Game Card</title>
+</head>
+<body>
+    <header>
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" alt="Imersão Dev">
+        <a href="https://alura.com.br/" target="_blank"><img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="Alura"></a>
+    </header>
+    <main>
+        <div class="firstDisplay">
+            <div class="title">
+                <h1>Game Card!</h1>
+            </div>
+            <div class="play">
+                <button class="button" id="help" onclick="help()">Como jogar?</button>
+                <button class="button" id="newGame" onclick="newGame()">Jogar!</button>
+            </div>
+        </div>
+                
+                
+        <div class="game">
+            <div class="chooseCard">
+                
+            </div>
+            <div class="enemy">
+                <input type="text" class="enemy" readonly id="outEnemy" value="Oi">
+                <input type="text" class="enemy" readonly id="outEnemyLife" value="91">
+            </div>
+            <div class="cardEnemy">
+                
+            </div>
+            
+            <div class="playOptions">
+                <div class="playerHub">
+                    <input type="text" id="outPlayer" readonly class="player" value="Gabriel">
+                    <input type="text" id="outPlayerLife" readonly class="player" value="Gabriel">
+                </div>
+                <div class="options">
+                    <button id="" onclick="" class="button">Atacar</button>
+                    <button id="" onclick="" class="button">Defender</button>
+                    <button id="" onclick="" class="button">Carta</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="popup">
+            <div class="containerPopup">
+                <div>
+                    <h3 id="outPopup">Aviso jsjsjjsjsjsjsjsjjsjjsjsj</h3>
+                </div>
+                <div>
+                    <button class="button" onclick="closePopup()">OK!</button>
+                </div>
+            </div>
+        </div>
+        <div class="help">
+            
+        </div>
+    </main>
+    <footer>
+        
+        <br>
+        <p>
+            &copy;Made by:
+        </p>
+        <br>
+        <p>Gabriel Henrique da Silva</p>
+        <div>
+            <p>—</p>
+            
+        </div>
+        <p>Mar. 2021</p>
+    
+        <p>—</p>
+        <br>
+        <a target="_blank" href="mailto:g.h.silva.digital@gmail.com" alt="E-mail>">E-mail</a>
+        <a target="_blank" href="https://github.com/Gabriel0112001" alt="Github">Github</a>
+        <a target="_blank" href="https://www.instagram.com/gabriel.hsilva/" alt="Instagram">Instagram</a>
+        <br>
+        <footer>
+            
+        </footer>
+    </footer>
+    <script src="public/js/main.js"></script>
+</body>
+</html>

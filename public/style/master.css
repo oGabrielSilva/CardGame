@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: whitesmoke;
+    border: none;
+}
+
+footer {
+    display: none;
+    min-height: 35vh;
+}
+
+body {
+    background: #131523;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    height: 10vh;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+header img {
+    height: 5vh;
+}
+
+main {
+    min-height: 90vh;
+}
+
+/*classes*/
+
+/*game*/
+
+.game {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.player {
+    text-align: center;
+    background: #131523;
+}
+
+.playerHub {
+    display: grid;
+}
+
+.enemy {
+    display: grid;
+    background: rgba(0,0,0,0);
+    padding: 1em 0 0;
+}
+
+#outEnemy, #outEnemyLife {
+    text-align: center;
+}
+
+#outEnemyLife {
+    padding: 0 0 1em 0;
+}
+
+.playOptions {
+    position: fixed;
+    height: 30vh;
+    width: 100vw;
+    bottom: 0;
+    display: none;
+    border: 1px solid;
+    justify-content: center;
+    align-items: center;
+    background: #131523;
+}
+
+/*game*/
+
+/*popup*/
+.popup {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(00,00,00,.5);
+}
+
+.containerPopup {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    background: radial-gradient(circle, #0e0e0e,#011);
+    border: 2px solid;
+}
+
+
+/*popup*/
+
+.firstDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+    justify-content: space-between;
+    padding: 2.5em 0 1em;
+}
+
+.play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/*butões*/
+
+.button {
+    width: auto;
+    padding: .7em 3.5em;
+    background: #080886;
+    box-shadow: 2px 2px 7px #000;
+    margin-bottom: .5em;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #191997;;
+}
+
+/*chooseCard*/
+
+.chooseCard {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background: #000;
+    grid-template-columns: 1fr;
+    padding: 1em;
+}
+
+table {
+    border: 1px solid;
+    padding: .5em;
+    margin: 1em 0;
+}
+
+th {
+    padding: .5em;
+}
+
+/*chooseCard*/
