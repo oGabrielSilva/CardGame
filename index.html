@@ -35,8 +35,8 @@
                 
             </div>
             <div class="enemy">
-                <input type="text" class="enemy" readonly id="outEnemy" value="Oi">
-                <input type="text" class="enemy" readonly id="outEnemyLife" value="91">
+                <input type="text" class="enemy" readonly id="outEnemy">
+                <input type="text" class="enemy" readonly id="outEnemyLife">
             </div>
             <div class="cardEnemy">
                 
@@ -44,25 +44,28 @@
             
             <div class="playOptions">
                 <div class="playerHub">
-                    <input type="text" id="outPlayer" readonly class="player" value="Gabriel">
-                    <input type="text" id="outPlayerLife" readonly class="player" value="Gabriel">
+                    <input type="text" id="outPlayer" readonly class="player">
+                    <input type="text" id="outPlayerLife" readonly class="player">
                 </div>
                 <div class="options">
-                    <button id="" onclick="" class="button">Atacar</button>
-                    <button id="" onclick="" class="button">Defender</button>
-                    <button id="" onclick="" class="button">Carta</button>
+                    <button id="" onclick="attack()" class="button">Atacar</button>
+                    <button id="" onclick="defense()" class="button">Defender</button>
+                    <button id="" onclick="statusPlayer()" class="button">Status</button>
                 </div>
             </div>
         </div>
         
         
-        <div class="popup">
-            <div class="containerPopup">
-                <div>
-                    <h3 id="outPopup">Aviso jsjsjjsjsjsjsjsjjsjjsjsj</h3>
-                </div>
-                <div>
-                    <button class="button" onclick="closePopup()">OK!</button>
+        
+        <div id="attackOrMage">
+            <div>
+                <div class="message">
+                    <p></p>
+                    <p>Atacar com força ou com magia?</p>
+                    <div>
+                        <button class="button" onclick="force()">Força</button>
+                        <button class="button" onclick="atkMage()" id="magiaUs">Magia</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,7 +96,22 @@
         <footer>
             
         </footer>
+        
+        
     </footer>
+    
+    <div class="popup">
+            <div class="containerPopup">
+                <div>
+                    <p id="outPopup"></p>
+                </div>
+                <div>
+                    <button class="button" onclick="closePopup()">OK!</button>
+                </div>
+            </div>
+        </div>
     <script src="public/js/main.js"></script>
+    <script src="public/js/chooseCard.js"></script>
+    <script src="public/js/game.js"></script>
 </body>
 </html>
