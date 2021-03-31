@@ -16,7 +16,28 @@ function UI() {
     const outPlayerLife = document.querySelector('#outPlayerLife')
     const outEnemy = document.querySelector('#outEnemy')
     const outEnemyLife = document.querySelector('#outEnemyLife')
+    const tableEnemy = document.querySelector('#tableEnemy')
     
+    tableEnemy.innerHTML = `
+        <table id="tableEne">
+                    <thead>
+                        <tr><th>${enemy.name}</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Força: </th>
+                            <th>Defesa: </th>
+                            <th>Magia: </th>
+                        </tr>
+                        <tr>
+                            <td>${enemy.force}</td>
+                            <td>${enemy.defense}</td>
+                            <td>${enemy.spell}</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+    `
     outEnemy.value = enemy.name
     outEnemyLife.value = `Vida: ${enemy.life}`
     outPlayer.value = cardsPlayer[0].name
@@ -34,10 +55,19 @@ function attack() {
     }
 }
 
-function force() {
+function defense() {
+    force(true)
+}
+
+function force(value) {
+    
     let atk = cardsPlayer[0].force
-  
     let eneDef = enemy.defense
+    if (value) {
+        atk = cardsPlayer[0].defense
+        eneDef = enemy.force
+        console.log('Funciona')
+    }
     
     let dano = atk - eneDef
     console.log(dano)

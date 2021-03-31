@@ -1,10 +1,11 @@
 //variáveis globais 
-let popup = ``      //aviso do popup 
-let html = ``       //chooseCard
-let indexInner = 0  //chooseCard
-cardsPlayer = []    //carta escolhida
-cardsForChoose = [] //cartas para escolha
-let enemy           //carta do inimigo
+let auxStatus = false   //auxiliar do botão de status do player
+let popup = ``          //aviso do popup 
+let html = ``           //chooseCard
+let indexInner = 0      //chooseCard
+cardsPlayer = []        //carta escolhida
+cardsForChoose = []     //cartas para escolha
+let enemy               //carta do inimigo
 let mage = 20
 let enemyMage = 20
 const chooseCardInner = document.querySelector('.chooseCard')
@@ -27,6 +28,45 @@ function newGame() {
     }
 }
 
+function statusPlayer() {
+    let displayGrid = document.querySelector('#displayStatus')
+    if (auxStatus == false) {
+        let html = ``
+        
+        for (i = 0; i < 1; i++) {
+            html = `
+                <p>X</p>
+                <table id="table">
+                    <thead>
+                        <tr><th>${cardsPlayer[i].name}</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Força: </th>
+                            <th>Defesa: </th>
+                            <th>Magia: </th>
+                        </tr>
+                        <tr>
+                            <td>${cardsPlayer[i].force}</td>
+                            <td>${cardsPlayer[i].defense}</td>
+                            <td>${cardsPlayer[i].spell}</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            `
+        }
+        displayGrid.style.display = 'grid'
+        document.querySelector('.playOptionsDisabled').style.display = 'block'
+        document.querySelector('.playOptions').style.display = 'none'
+        displayGrid.innerHTML = html
+        auxStatus = true
+    } else {
+        displayGrid.style.display = 'none'
+        auxStatus = false
+    }
+}
+
 function newPopup() {
     document.querySelector('.popup').style.display = 'grid'
     outPopup.textContent = popup
@@ -35,29 +75,6 @@ function newPopup() {
 function closePopup() {
     document.querySelector('.popup').style.display = 'none'
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
