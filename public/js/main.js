@@ -1,5 +1,6 @@
 //variáveis globais 
 let auxStatus = false   //auxiliar do botão de status do player
+let popupAuxAtk         //auxiliar do popup no combate
 let popup = ``          //aviso do popup 
 let html = ``           //chooseCard
 let indexInner = 0      //chooseCard

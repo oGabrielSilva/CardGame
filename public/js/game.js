@@ -5,7 +5,6 @@ function gameStart() {
     
     if (enemy == cardsPlayer[0]) {
         gameStart()
-        console.log(enemy)
     }
     
     UI()
@@ -66,26 +65,29 @@ function force(value) {
     if (value) {
         atk = cardsPlayer[0].defense
         eneDef = enemy.force
-        console.log('Funciona')
     }
     
     let dano = atk - eneDef
-    console.log(dano)
+    let danoDe
     
     if (dano < 1) {
-        let danoDe = Math.abs(dano)
+        danoDe = Math.abs(dano)
         dano = 1
-        
         cardsPlayer[0].life = cardsPlayer[0].life - danoDe
         enemy.life = enemy.life - dano
     } else {
         enemy.life = enemy.life - dano
-        cardsPlayer[0].life = cardsPlayer[0].life--
+        cardsPlayer[0].life = cardsPlayer[0].life - 1
+        danoDe = 1
     }
 
     
+    if (value) {
+        popup = `${cardsPlayer[0].name} se defendeu. Causou ${dano} de dano em ${enemy.name} que atacou a defesa. Recebeu ${danoDe} de dano no ataque do inimigo.`
+    } else {
+        popup = `${cardsPlayer[0].name} atacou fisicamente ${enemy.name}. Causou ${dano} de dano. Recebeu ${danoDe} de dano na defesa do inimigo.`
+    }
     
-    console.log(`Dano: ${dano}`)
     
     enemyAtk()
 }
@@ -97,22 +99,24 @@ function atkMage() {
     let eneDef = enemy.defense
     
     let dano = atk - eneDef
-    console.log(dano)
+    let danoDe
     
     if (dano < 1) {
-        let danoDe = Math.abs(dano)
+        danoDe = Math.abs(dano)
         dano = 1
         
         enemy.life = enemy.life - dano
         cardsPlayer[0].life = cardsPlayer[0].life - danoDe
     } else {
         enemy.life = enemy.life - dano
-        cardsPlayer[0].life = cardsPlayer[0].life--
+        cardsPlayer[0].life = cardsPlayer[0].life - 1
+        danoDe = 1
     }
 
     mage = mage - 5
     
-    console.log(`Dano: ${dano}`)
+    popup = `${enemy.name} recebeu um ataque mágico de ${cardsPlayer[0].name}. Sofreu ${dano} de dano. Recebeu ${danoDe} de dano na defesa do inimigo. Gastou 5 de mana.`
+    
     
     enemyAtk()
 }
@@ -135,13 +139,13 @@ function enemyAtk() {
                 enemy.life = enemy.life - danoDe
                 cardsPlayer[0].life = cardsPlayer[0].life - dano
                 
-                console.log(`Dano causado pelo inimigo: ${dano}`)
-                console.log(`Dano recebido pelo inimigo: ${danoDe}`)
+                popup += ` ${enemy.name} atacou ${cardsPlayer[0].name} com magia. Causou ${dano} de dano. Recebeu ${danoDe} de dano rebatido na defesa.`
+                newPopup()
             } else {
                 cardsPlayer[0].life = cardsPlayer[0].life - dano
                 enemy.life--
-                console.log(`Dano causado pelo inimigo: ${dano}`)
-                console.log(`Dano recebido pelo inimigo: ${1}`)
+                popup += ` ${enemy.name} atacou ${cardsPlayer[0].name} com magia. Causou ${dano} de dano. Recebeu ${1} de dano rebatido na defesa.`
+                newPopup()
             }
             
             enemyMage = enemyMage - 5
@@ -153,14 +157,14 @@ function enemyAtk() {
                 enemy.life = enemy.life - danoDe
                 cardsPlayer[0].life = cardsPlayer[0].life - dano
                 
-                console.log(`Dano fisico causado pelo inimigo: ${dano}`)
-                console.log(`Dano físico recebido pelo inimigo: ${danoDe}`)
+                popup += ` ${enemy.name} atacou ${cardsPlayer[0].name} fisicamente causando ${dano} de dano. Recebeu ${danoDe} rebatido.`
+                newPopup()
             } else {
                 enemy.life--
                 cardsPlayer[0].life = cardsPlayer[0].life - dano
                 
-                console.log(`Dano fisico causado pelo inimigo: ${dano}`)
-                console.log(`Dano físico recebido pelo inimigo: ${1}`)
+                popup += ` ${enemy.name} atacou ${cardsPlayer[0].name} fisicamente causando ${dano} de dano. Recebeu ${1} rebatido.`
+                newPopup()
             }
         }
     } else {
@@ -171,17 +175,27 @@ function enemyAtk() {
             enemy.life = enemy.life - danoDe
             cardsPlayer[0].life = cardsPlayer[0].life - dano
             
-            console.log(`Dano fisico causado pelo inimigo: ${dano}`)
-            console.log(`Dano físico recebido pelo inimigo: ${danoDe}`)
+            popup += ` ${enemy.name} atacou ${cardsPlayer[0].name} fisicamente causando ${dano} de dano. Recebeu ${danoDe} rebatido.`
+            newPopup()
         } else {
             enemy.life--
             cardsPlayer[0].life = cardsPlayer[0].life - dano
             
-            console.log(`Dano fisico causado pelo inimigo: ${dano}`)
-            console.log(`Dano físico recebido pelo inimigo: ${1}`)
+            popup += ` ${enemy.name} atacou ${cardsPlayer[0].name} fisicamente causando ${dano} de dano. Recebeu ${1} rebatido na defesa de ${cardsPlayer[0].name}.`
+            newPopup()
         }
     }
     
     document.querySelector('#attackOrMage').style.display = 'none'
     UI()
 }
+
+
+//ouvidor 
+
+const upOptionsPlayer = document.querySelector('.playOptionsDisabled')
+upOptionsPlayer.addEventListener('click', () => {
+    upOptionsPlayer.style.display = 'none'
+    
+    document.querySelector('.playOptions').style.display = 'grid'
+})

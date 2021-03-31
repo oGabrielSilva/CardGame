@@ -118,12 +118,19 @@ main {
 
 .playOptionsDisabled {
     position: fixed;
-    height: 5vh;
+    height: 8vh;
     width: 100vw;
     bottom: 0;
     display: none;
     border: 1px solid;
     background: #131523;
+    cursor: pointer;
+    padding: 3vh 0 0 0;
+    transition: 1s ease;
+}
+
+.playOptionsDisabled:hover {
+    background: #242634;
 }
 
 /*game*/
@@ -222,6 +229,7 @@ th {
     justify-content: space-between;
     height: 40vh;
     width: 90vw;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     grid-template-columns: 1fr;
